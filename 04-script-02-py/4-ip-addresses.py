@@ -11,7 +11,8 @@ for host in hosts:
     ipAddresses = socket.gethostbyname_ex(host)
     print('< ' + host + ' > - < ' + ', '.join(ipAddresses[2]) + ' >')
     # Открываем файл с предыдущим списком IP адресов для текущего хоста, сохраняем прежние адреса в список
-    with open(host + '-ip-services.txt', 'r+') as file:
+    with open(host + '-ip-services.txt', 'a+') as file:
+        file.seek(0)
         oldIpList = file.read().splitlines()
         # Для каждого IP адреса делаем сравнение с предыдущим запросом и сохранение в строку для записи в файл
         for ipAddress in ipAddresses[2]:
