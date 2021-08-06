@@ -5,7 +5,7 @@ while ((1==1))
 do
    for i in ${urls[@]}
    do
-       ping $i &>/dev/null
+       curl --max-time 1 --silent --output /dev/null $i
        if (($? != 0))
        then
            echo $i >> error
