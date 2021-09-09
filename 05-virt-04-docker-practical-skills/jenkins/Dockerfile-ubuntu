@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install -y wget && \
+    apt-get install -y gnupg2 && \
+    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add - && \
+    sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+    apt-get update && \
+    apt-get install -y openjdk-11-jdk && \
+    apt-get install -y jenkins && \
+    apt-get install -y systemctl
+EXPOSE 8080
+CMD ["systemctl", "start", "jenkins.service"]
+
+
+
+
+
+

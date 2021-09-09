@@ -1,0 +1,8 @@
+FROM amazoncorretto:11.0.12-alpine
+RUN apk update && \ 
+    apk add openrc && \ 
+    apk add jenkins && \
+    rc-update add jenkins
+EXPOSE 8080
+ENTRYPOINT ["/sbin/init"]
+CMD ["rc-service", "jenkins", "start"]
