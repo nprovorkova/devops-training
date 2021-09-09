@@ -5,7 +5,7 @@ do
    curl --silent --output /dev/null https://localhost:4757
    if (($? != 0))
    then
-       date >> curl.log
+       date > curl.log
    else
        break
    fi
