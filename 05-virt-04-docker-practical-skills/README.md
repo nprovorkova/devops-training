@@ -1,4 +1,4 @@
-###5.4. Практические навыки работы с Docker
+### 5.4. Практические навыки работы с Docker
 #### 1. ponysay
 [Докерфайл](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/ponysay/Dockerfile)
 <br>[Скриншот](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/ponysay/ponysay.jpg)
