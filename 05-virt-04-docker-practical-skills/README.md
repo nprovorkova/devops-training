@@ -7,7 +7,7 @@
 #### 2. Jenkins
 [Докерфайл amazoncorrtto](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/Dockerfile-amazoncorretto)
 <br>[Докерфайл ubuntu](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/Dockerfile-ubuntu)
-<br>[Скриншоты логов запущенных контейнеровu](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/logs.jpg)
+<br>[Скриншоты логов запущенных контейнеров](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/logs.jpg)
 <br>[Скриншоты веб-интерфейса Jenkins amazoncorrtto](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/amazoncorretto.jpg)
 <br>[Скриншоты веб-интерфейса Jenkins ubuntu](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/jenkins/ubuntu.jpg)
 <br>[Ссылки на образы в docker-hub](https://hub.docker.com/repository/docker/provorkova/netology-jenkins/tags?page=1&ordering=last_updated)
