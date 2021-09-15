@@ -17,4 +17,17 @@
 <br>[Скриншот списка docker сетей](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/nodejs/nodejs%20network.jpg)
 <br>[Скриншот вызова утилиты curl с ответом connection refused](https://github.com/nprovorkova/devops-training/blob/master/05-virt-04-docker-practical-skills/nodejs/nodejs%20curl.jpg)
 
+Выполненные команды по заданию:
+<br>docker build -t nodejs -f Dockerfile .
+<br>docker images 
+<br>docker run -d -ti --name nodejs-0 nodejs
+<br>docker run -d -ti --name ubuntu-00 --expose=3000 ubuntu:latest
+<br>docker network create netology-network
+<br>docker network connect  netology-network nodejs-0
+<br>docker network connect  netology-network ubuntu-00
+<br>docker network inspect netology-network
+<br>docker exec -ti ubuntu-00 bash
+<br>apt update && apt upgrade
+<br>apt install -y curl
+<br>curl nodejs-0:3000
 
