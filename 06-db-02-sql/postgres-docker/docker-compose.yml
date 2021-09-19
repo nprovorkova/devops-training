@@ -1,0 +1,18 @@
+services:
+  dbpostgres:
+    image: postgres:12
+    container_name: postgres
+    volumes:
+      - first-postgres-volume:/first-volume
+      - second-postgres-volume:/second-volume
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: pgdb
+volumes:
+  first-postgres-volume:
+    external: false
+  second-postgres-volume:
+    external: false
