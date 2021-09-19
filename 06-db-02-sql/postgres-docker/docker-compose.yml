@@ -3,6 +3,7 @@ services:
     image: postgres:12
     container_name: postgres
     volumes:
+      - first-postgres-volume:/var/lib/postgresql/data
       - second-postgres-volume:/backup
     ports:
       - "5432:5432"
