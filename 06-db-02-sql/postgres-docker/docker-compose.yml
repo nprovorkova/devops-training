@@ -3,8 +3,7 @@ services:
     image: postgres:12
     container_name: postgres
     volumes:
-      - first-postgres-volume:/first-volume
-      - second-postgres-volume:/second-volume
+      - second-postgres-volume:/backup
     ports:
       - "5432:5432"
     environment:
@@ -13,6 +12,6 @@ services:
       POSTGRES_DB: pgdb
 volumes:
   first-postgres-volume:
-    external: false
+    external: true
   second-postgres-volume:
-    external: false
+    external: true
