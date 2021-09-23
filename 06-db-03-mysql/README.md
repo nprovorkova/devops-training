@@ -1,4 +1,4 @@
-### 6.2. Sql
+### 6.3. MySql
 #### 1. docker-mysql
 [Скриншот статуса БД](https://github.com/nprovorkova/devops-training/blob/master/06-db-03-mysql/my-sql/status.jpg)
 >Server version:  8.0.26 MySQL Community Server - GPL
