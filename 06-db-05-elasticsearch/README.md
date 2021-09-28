@@ -26,9 +26,9 @@
 <br>'
 
 [Результат вызова API для создания репозитория](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/create-backup-repo.jpg)
-[Список индексов](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/backup-list-indeces.jpg)
-[Список файлов в директории со snapshotами](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/backup-list-snapshots.jpg)
-[Обновленный список индексов](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/list-indeces-after-backup.jpg)
+<br>[Список индексов](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/backup-list-indeces.jpg)
+<br>[Список файлов в директории со snapshotами](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/backup-list-snapshots.jpg)
+<br>[Обновленный список индексов](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/list-indeces-after-backup.jpg)
 
 Запрос к API восстановления состояния кластера elasticsearch из snapshot, созданного ранее:
 
