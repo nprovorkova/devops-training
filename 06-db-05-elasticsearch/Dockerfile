@@ -22,9 +22,9 @@ RUN echo "xpack.ml.enabled: false" >> config/elasticsearch.yml && \
     echo "node.name: netology_test" >> config/elasticsearch.yml && \
     echo "path.data: /var/lib" >> config/elasticsearch.yml && \
     echo "network.host: 0.0.0.0" >> config/elasticsearch.yml && \
-    echo "discovery.type: single-node" >> config/elasticsearch.yml
-
-RUN echo "path.repo: /elasticsearch-7.15.0/snapshots" >> config/elasticsearch.yml
+    echo "discovery.type: single-node" >> config/elasticsearch.yml  && \
+    echo "path.repo: /elasticsearch-7.15.0/snapshots" >> config/elasticsearch.yml  && \
+    echo "ingest.geoip.downloader.enabled: false" >> config/elasticsearch.yml
 
 EXPOSE 9200
 
