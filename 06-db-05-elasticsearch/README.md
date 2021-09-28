@@ -1,12 +1,12 @@
 ### 6.5. ElasticSearch
 #### 1. Dockerfile:
 [Dockerfile-манифест для elasticsearch](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/Dockerfile)
-[Ссылка на образ](https://hub.docker.com/repository/docker/provorkova/netology-elasticsearch)
-[Запрос localhost:9200](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/start-elasticsearch.jpg)
+<br>[Ссылка на образ](https://hub.docker.com/repository/docker/provorkova/netology-elasticsearch)
+<br>[Запрос localhost:9200](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/start-elasticsearch.jpg)
 
 #### 2. Добавление индексов 
 [Список индексов и их статусов](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/list-indices.jpg)
-[Состояние кластера elasticsearch](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/cluster-health.jpg)
+<br>[Состояние кластера elasticsearch](https://github.com/nprovorkova/devops-training/blob/master/06-db-05-elasticsearch/cluster-health.jpg)
 
 Часть индексов и кластер находятся в состоянии yellow, так как 
 количество реплик >= количество узлов
