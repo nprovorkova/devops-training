@@ -61,4 +61,11 @@ SQL-транзакция для проведения шардирования:
 >pg_dump -d test_database -U postgres -Fp > /tmp/test_database.sql
 
 Добавление уникальности столбца title:
-> CREATE UNIQUE INDEX index_title_unique  ON orders(title);
+> ~~CREATE UNIQUE INDEX index_title_unique  ON orders(title);~~
+> CREATE TABLE public.orders (
+<br>&nbsp;    id integer NOT NULL,
+<br>&nbsp;    title character varying(80) NOT NULL,
+<br>&nbsp;    price integer DEFAULT 0,
+<br>&nbsp;    UNIQUE(title)
+<br>);
+
