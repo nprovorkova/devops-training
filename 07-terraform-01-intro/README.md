@@ -27,11 +27,11 @@
 
 #### 2. Установка терраформ
 Вывод команды `terraform --version`:
-![Вывод команды terraform --version](terraform-version.png)
+<br>![Вывод команды terraform --version](terraform-version.png)
 
 #### 3. Поддержка легаси кода
 Вывод `--version` двух версий терраформа доступных на компьютере:
-![terraform-old-version.png](terraform-old-version.png)
+<br>![terraform-old-version.png](terraform-old-version.png)
 
 Выбор версии с помощью tfswith:
-![tfswitch.png](tfswitch.png)
+<br>![tfswitch.png](tfswitch.png)
