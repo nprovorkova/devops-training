@@ -11,9 +11,9 @@ output "regions" {
 }
 
 output "instance_ip_addr" {
-   value = aws_instance.my_aws_instance.0.private_ip
+   value = aws_instance.first_aws_instance.0.private_ip
 }
 
 output "instance_network_interface_id" {
-   value = aws_instance.my_aws_instance.0.primary_network_interface_id
+   value = aws_instance.first_aws_instance.0.primary_network_interface_id
 }

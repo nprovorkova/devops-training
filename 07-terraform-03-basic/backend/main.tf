@@ -63,7 +63,3 @@ resource "aws_instance" "second_aws_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = local.web_instance_type_map[terraform.workspace]
 }
-
-data "aws_caller_identity" "current" {}
-
-data "aws_region" "current" {}
