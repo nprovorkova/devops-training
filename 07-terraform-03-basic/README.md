@@ -27,7 +27,7 @@ provider "aws" {
 1. workspace list
 <br>![workspace-list](workspace-list.png)
 2. terraform plan for prod-workspace
-<br>![workspace-prod-plan-1](workspace-prod-plan-1.png)
+<br>![workspace-prod-plan-1](workspace-prod-plan-01.png)
    <br>![workspace-prod-plan-2](workspace-prod-plan-2.png)
    <br>![workspace-prod-plan-3](workspace-prod-plan-3.png)
    <br>![workspace-prod-plan-4](workspace-prod-plan-4.png)
