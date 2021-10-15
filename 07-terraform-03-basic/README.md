@@ -25,9 +25,9 @@ provider "aws" {
 
 #### 2. Инициализируем проект и создаем воркспейсы.
 1. workspace list
-![workspace-list](workspace-list.png)
+<br>![workspace-list](workspace-list.png)
 2. terraform plan for prod-workspace
-![workspace-prod-plan-1](workspace-prod-plan-1.png)
+<br>![workspace-prod-plan-1](workspace-prod-plan-1.png)
    <br>![workspace-prod-plan-2](workspace-prod-plan-2.png)
    <br>![workspace-prod-plan-3](workspace-prod-plan-3.png)
    <br>![workspace-prod-plan-4](workspace-prod-plan-4.png)
