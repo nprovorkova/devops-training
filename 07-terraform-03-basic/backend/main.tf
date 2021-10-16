@@ -10,6 +10,8 @@ terraform {
     region = "eu-north-1"
   }
 }
+
+/*Этот блок нужен для того, чтобы читать стейты другого проекта, то есть в данном случае не нужен:
 data "terraform_remote_state" "network" {
   backend = "s3"
   config = {
@@ -17,7 +19,7 @@ data "terraform_remote_state" "network" {
     key    = format( "env:/%s/bucket-key-path", terraform.workspace)
     region = "eu-north-1"
   }
-}
+}*/
 
 data "aws_ami" "ubuntu" {
     most_recent = true
@@ -44,6 +46,7 @@ locals {
     stage = 1
     prod = 2
   }
+//?? Надо брать из each.key и  each.value, а не из local.web_instance_type_map[terraform.workspace], но не понятно как
   instances = terraform.workspace == "prod" ? toset(["0", "1"]) : toset(["0"])
 }
 
