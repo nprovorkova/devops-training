@@ -33,17 +33,17 @@
 
 #### 3. Склонируйте себе репозиторий и запустите TICK-стэк, используя технологии docker и docker-compose. P.S.: если при запуске некоторые контейнеры будут падать с ошибкой - проставьте им режим Z, например ./data:/var/lib:Z
 - curl http://localhost:8086/ping
-![8086](imgs/8086.png)
+<br>![8086](imgs/8086.png)
 - curl http://localhost:8888
- ![8888](imgs/8888.png)
+  <br>![8888](imgs/8888.png)
 - curl http://localhost:9092/kapacitor/v1/ping
- ![9092](imgs/9092.png)
+  <br>![9092](imgs/9092.png)
 - веб-интерфейс ПО chronograf (http://localhost:8888).
-![8888-1](imgs/8888-1.png)
+  <br>![8888-1](imgs/8888-1.png)
 
 #### 4. Перейдите в веб-интерфейс Chronograf (http://localhost:8888) и откройте вкладку Data explorer.
 В конфигурацию telegraf добавлены плагины [[inputs.mem]] и [[inputs.disk]]
-![disk](imgs/disk.png)
+<br>![disk](imgs/disk.png)
 
 #### 5. Изучите список telegraf inputs. Добавьте в конфигурацию telegraf следующий плагин - docker:
 ```
@@ -69,4 +69,4 @@
  ```
 sudo chmod 666 /var/run/docker.sock
  ```
-![docker](imgs/docker.png)
+<br>![docker](imgs/docker.png)
