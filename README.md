@@ -1,2 +1,1 @@
-# devops-training
-q
+# devops-netology
