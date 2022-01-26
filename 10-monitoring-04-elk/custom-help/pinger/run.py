@@ -18,3 +18,4 @@ while True:
         logging.exception(Exception('this is exception'))
 
     time.sleep(1)
+    

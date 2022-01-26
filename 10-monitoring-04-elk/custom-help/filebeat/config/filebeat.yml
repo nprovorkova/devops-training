@@ -1,7 +1,7 @@
 filebeat.inputs:
-- type: container
-  paths:
-    - '/var/lib/docker/containers/*/*.log'
+  - type: container
+    paths:
+      - '/var/lib/docker/containers/*/*.log'
 
 processors:
   - add_docker_metadata:
@@ -13,7 +13,7 @@ processors:
       overwrite_keys: true
 
 output.logstash:
-  hosts: ["logstash:5046"]
+  hosts: ["logstash:5044"]
 
 #output.console:
 #  enabled: true
