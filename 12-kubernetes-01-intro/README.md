@@ -18,6 +18,8 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 запущенные служебные компоненты можно увидеть командой: kubectl get pods --namespace=kube-system
 Для сброса кластера стоит удалить кластер и создать заново:
 minikube delete
+sudo rm -rf /tmp/juju-mk*
+sudo rm -rf /tmp/minikube.*
 minikube start --vm-driver=none
 Возможно, для повторного запуска потребуется выполнить команду: sudo sysctl fs.protected_regular=0
 
