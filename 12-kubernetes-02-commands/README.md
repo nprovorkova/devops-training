@@ -11,7 +11,11 @@
 наличие подов можно проверить командой kubectl get pods
 ```
 [deployment](deployment.yml)
-kubectl apply -f deployment.yml
+<br>kubectl create namespace app-namespace
+<br>kubectl apply -f deployment.yaml
+<br>kubectl get deploy -n app-namespace
+<br>kubectl get po -n app-namespace
+<br>![pods](imgs/pods.png)
 
 #### 2. Просмотр логов для разработки
 ```
@@ -23,7 +27,12 @@ kubectl apply -f deployment.yml
 пользователь прописан в локальный конфиг (~/.kube/config, блок users)
 пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
 ```
-
+kubectl apply -f serviceaccount.yaml -n app-namespace
+<br>kubectl get secret
+<br>![secret](imgs/secret.png)
+<br>cat ~/.kube/config
+<br>![kube-config](imgs/kube-config.png)
+<br>kubectl config set-context --current --user=tasha  
 #### 3. Изменение количества реплик
 ```
 Поработав с приложением, вы получили запрос на увеличение количества реплик приложения для нагрузки. Необходимо изменить запущенный deployment, увеличив количество реплик до 5. Посмотрите статус запущенных подов после увеличения реплик.
