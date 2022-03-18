@@ -10,7 +10,7 @@
 наличие deployment можно проверить командой kubectl get deployment
 наличие подов можно проверить командой kubectl get pods
 ```
-[deployment](yamls/deployment.yml)
+[deployment](deployment.yaml)
 <br>kubectl create namespace app-namespace
 <br>kubectl apply -f deployment.yaml
 <br>kubectl get deploy -n app-namespace
@@ -27,9 +27,9 @@
 пользователь прописан в локальный конфиг (~/.kube/config, блок users)
 пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
 ```
-[serviceaccount](yamls/serviceaccount.yml)
-<br>[role](yamls/role.yml)
-<br>[rolebinding](yamls/rolebinding.yml)
+[serviceaccount](serviceaccount.yaml)
+<br>[role](role.yaml)
+<br>[rolebinding](rolebinding.yaml)
 <br>kubectl apply -f serviceaccount.yaml -n app-namespace
 <br>kubectl apply -f role.yaml -n app-namespace
 <br>kubectl apply -f rolebinding.yaml -n app-namespace
