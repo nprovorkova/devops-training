@@ -2,7 +2,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: pod-reader
+  name: pod-view
   namespace: app-namespace
 roleRef:
   apiGroup: rbac.authorization.k8s.io

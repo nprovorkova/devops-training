@@ -6,5 +6,8 @@ metadata:
   namespace: app-namespace
 rules:
   - apiGroups: [""]
-    resources: ["pods"]
-    verbs: ["get", "list", "describe", "logs"]
+    resources: ["pods", "pods/log"]
+    verbs: ["get", "list", "describe"]
+  - apiGroups: [ "apps" ]
+    resources: [ "pods", "pods/log" ]
+    verbs: [ "get", "list", "describe"]

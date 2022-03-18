@@ -27,12 +27,31 @@
 пользователь прописан в локальный конфиг (~/.kube/config, блок users)
 пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
 ```
-kubectl apply -f serviceaccount.yaml -n app-namespace
+[serviceaccount](serviceaccount.yml)
+<br>[role](role.yml)
+<br>[rolebinding](rolebinding.yml)
+<br>kubectl apply -f serviceaccount.yaml -n app-namespace
+<br>kubectl apply -f role.yaml -n app-namespace
+<br>kubectl apply -f rolebinding.yaml -n app-namespace
 <br>kubectl get secret
 <br>![secret](imgs/secret.png)
 <br>cat ~/.kube/config
 <br>![kube-config](imgs/kube-config.png)
-<br>kubectl config set-context --current --user=tasha  
+~~<br>export TOKENNAME=$(kubectl -n app-namespace get serviceaccount/tasha -o jsonpath='{.secrets[0].name}')~~
+~~<br>export TOKEN=$(kubectl -n app-namespace get secret $TOKENNAME -o jsonpath='{.data.token}' | base64 --decode)~~
+~~<br>kubectl config set-credentials tasha --token=$TOKEN~~
+~~<br>kubectl config set-context --current --user=tasha~~
+<br>kubectl get po -n app-namespace --as=system:serviceaccount:app-namespace:tasha
+<br>kubectl logs hello-world-5c6748dcbc-dhnmg -n app-namespace --as=system:serviceaccount:app-namespace:tasha
+<br>![tasha-logs](imgs/tasha-logs.png)
+<br>kubectl describe po hello-world-5c6748dcbc-dhnmg -n app-namespace --as=system:serviceaccount:app-namespace:tasha
+<br>![tasha-describe-1](imgs/tasha-describe-1.png)
+<br>![tasha-describe-2](imgs/tasha-describe-2.png)
+<br>kubectl delete po hello-world-5c6748dcbc-dhnmg -n app-namespace --as=system:serviceaccount:app-namespace:tasha
+<br>kubectl get deploy -n app-namespace --as=system:serviceaccount:app-namespace:tasha
+<br>kubectl get po --as=system:serviceaccount:app-namespace:tasha
+<br>![tasha-forbidden](imgs/tasha-forbidden.png)
+
 #### 3. Изменение количества реплик
 ```
 Поработав с приложением, вы получили запрос на увеличение количества реплик приложения для нагрузки. Необходимо изменить запущенный deployment, увеличив количество реплик до 5. Посмотрите статус запущенных подов после увеличения реплик.
@@ -42,3 +61,7 @@ kubectl apply -f serviceaccount.yaml -n app-namespace
 в deployment из задания 1 изменено количество реплик на 5
 проверить что все поды перешли в статус running (kubectl get pods)
 ```
+kubectl scale --replicas=5 deploy hello-world -n app-namespace
+<br>![deploy-replicas](imgs/deploy-replicas.png)
+<br>![deploy-scale](imgs/deploy-scale.png)
+<br>![pods-scale](imgs/pods-scale.png)
