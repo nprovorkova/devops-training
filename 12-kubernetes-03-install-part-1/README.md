@@ -27,6 +27,7 @@
 |:---   |:---                   |
 | CPU   | 2 * 3 = 6 ядер        | 
 | ОЗУ   | 2 * 3 = 6 ГБ          |
+
 <br>Worker-nodes:
 |       | 3 Worker-nodes   | 4 Worker-nodes   | 5 Worker-nodes   |
 |:---   |:---              |:---              | :---             |
