@@ -45,6 +45,10 @@ loadbalancer_apiserver:
   address: 51.250.102.220
   port: 6443
 ```
+<br>/roles/kubernetes/node/tasks/main.yml
+```
+Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
+```
 <br>ansible-playbook --flush-cache -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=user
 
 <br>Заходим на мастер-ноду
