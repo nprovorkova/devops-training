@@ -20,9 +20,9 @@
 <br>cat ~/.ssh/id_rsa.pub
 <br>cp -rfp inventory/sample inventory/happy-cluster
 <br>cd inventory/happy-cluster
-<br><br>ssh 51.250.105.84 -cp
-<br>ssh 51.250.97.7 - worker1
-<br>ssh 51.250.100.42 -worker2
+<br><br>ssh 51.250.102.220 -cp
+<br>ssh 51.250.103.49 - worker1
+<br>ssh 51.250.97.112 -worker2
 <br>[inventory.ini](inventory/happy-cluster/deployment.yaml)
 <br>В k8s-cluster.yml устанавливаем 
 ```
@@ -42,7 +42,7 @@ containerd_registries:
 <br>В all.yml
 ```
 loadbalancer_apiserver:
-  address: 51.250.105.102
+  address: 51.250.102.220
   port: 6443
 ```
 <br>ansible-playbook --flush-cache -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=user
