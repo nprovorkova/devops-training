@@ -7,17 +7,30 @@
 в качестве CRI — containerd;
 запуск etcd производить на мастере.
 ```
-sudo service ssh start
+Так как под рукой нет ресурсов для запуска вагранта, приняла решение поднять виртуалку с Ubuntu в облаке, на ней запускать KubeSpray и развернуть кластер.
+<br>ssh  user@51.250.102.171 - адрес вспомогательной ВМ
+<br>sudo apt-get update 
+<br>sudo apt-get install git
+<br>git clone https://github.com/kubernetes-sigs/kubespray
+<br>sudo apt-get -y install python3-pip
+<br>cd kubespray
+<br>sudo pip3 install -r requirements.txt
 <br>whoami
-<br>cat /home/nataliya/.ssh/id_rsa.pub
-<br>chmod 400 ~/.ssh/id_rsa
-<br>ssh 51.250.21.216 - Control-Plane
-<br>ssh 51.250.18.192 - Worker1
-<br>ssh 51.250.31.79 - Worker2
+<br>ssh-keygen
+<br>cat ~/.ssh/id_rsa.pub
+<br>cp -rfp inventory/sample inventory/happy-cluster
+<br>cd inventory/happy-cluster
+<br><br>ssh 51.250.105.84 -cp
+<br>ssh 51.250.97.7 - worker1
+<br>ssh 51.250.100.42 -worker2
 <br>[inventory.ini](inventory/happy-cluster/deployment.yaml)
 <br>В k8s-cluster.yml устанавливаем 
 ```
 container_manager: containerd
+kube_api_anonymous_auth: false
+kube_basic_auth: true
+kube_apiserver_insecure_port: 8080
+
 ```
 <br>В containerd.yml
 ```
@@ -32,8 +45,7 @@ loadbalancer_apiserver:
   address: 51.250.105.102
   port: 6443
 ```
-<br>export ANSIBLE_CONFIG=./ansible.cfg
-<br>ansible-playbook -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=nataliya
+<br>ansible-playbook --flush-cache -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=user
 
 <br>Заходим на мастер-ноду
 <br>kubectl get nodes
