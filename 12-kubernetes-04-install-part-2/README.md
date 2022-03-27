@@ -41,7 +41,7 @@ loadbalancer_apiserver:
   address: 51.250.99.127
   port: 6443
 ```
-/roles/kubernetes/node/tasks/main.yml
+<br>Были проблемы с Modprobe nf_conntrack_ipv4, решение - изменить этоттаск в /roles/kubernetes/node/tasks/main.yml
 ```
 Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
 ```
