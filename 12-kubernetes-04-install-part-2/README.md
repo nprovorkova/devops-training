@@ -49,11 +49,11 @@ Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
 <br>![kubespray-setup.png](imgs/kubespray-setup.png)
 <br>Заходим на мастер-ноду
 <br>kubectl get nodes
-<br>![kubectl-version error.png](imgs/kubectl-version error.png)
+<br>![kubectl-version-error.png](imgs/kubectl-version-error.png)
 <br>Получение списка нод выдает ошибку (это связано с отсутствием каталога .kube с правильной конфигурацией), нашла решение:
 ```
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-![kubectl-version ok.png](imgs/kubectl-version ok.png)
+![kubectl-version-ok.png](imgs/kubectl-version-ok.png)
