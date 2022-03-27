@@ -28,20 +28,20 @@
 ```
 container_manager: containerd
 ```
-<br>В containerd.yml
+В containerd.yml
 ```
 containerd_registries:
   "docker.io":
     - "https://hub.docker.com"
     - "https://k8s.gcr.io"
 ```
-<br>В all.yml
+В all.yml
 ```
 loadbalancer_apiserver:
   address: 51.250.99.127
   port: 6443
 ```
-<br>/roles/kubernetes/node/tasks/main.yml
+/roles/kubernetes/node/tasks/main.yml
 ```
 Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
 ```
@@ -56,4 +56,4 @@ Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
-<br>![kubectl-version ok.png](imgs/kubectl-version ok.png)
+![kubectl-version ok.png](imgs/kubectl-version ok.png)
