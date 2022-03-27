@@ -20,9 +20,9 @@
 <br>cat ~/.ssh/id_rsa.pub
 <br>cp -rfp inventory/sample inventory/happy-cluster
 <br>cd inventory/happy-cluster
-<br><br>ssh 51.250.99.127 -cp
+<br><br>ssh 51.250.99.127 - cp
 <br>ssh 51.250.99.45 - worker1
-<br>ssh 51.250.99.147 -worker2
+<br>ssh 51.250.99.147 - worker2
 <br>[inventory.ini](inventory/happy-cluster/inventory.ini)
 <br>В k8s-cluster.yml устанавливаем 
 ```
