@@ -23,7 +23,7 @@
 <br><br>ssh 51.250.99.127 -cp
 <br>ssh 51.250.99.45 - worker1
 <br>ssh 51.250.99.147 -worker2
-<br>[inventory.ini](inventory/happy-cluster/inventry.ini)
+<br>[inventory.ini](/inventory/happy-cluster/inventry.ini)
 <br>В k8s-cluster.yml устанавливаем 
 ```
 container_manager: containerd
