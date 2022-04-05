@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolit
+  namespace: stage
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monolit
+  template:
+    metadata:
+      labels:
+        app: monolit
+    spec:
+      containers:
+      - image: provorkova/kubernetes-config_backend:latest
+      - image: provorkova/kubernetes-config_frontend:latest
+  env:
+    - name: POSTGRES
+      value: postgresql
