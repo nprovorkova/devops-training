@@ -2,23 +2,21 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgresql
-  namespace: stage
+  name: postgres
+  namespace: prod
 spec:
-  serviceName: postgresql
-  replicas: 2
+  serviceName: postgres-service
+  replicas: 1
   selector:
     matchLabels:
-      app: postgresql
+      app: postgres
   template:
     metadata:
       labels:
-        app: postgresql
+        app: postgres
     spec:
-      serviceAccountName: postgresql
-      terminationGracePeriodSeconds: 10
       containers:
-        - name: postgresql
+        - name: postgres
           image: postgres:13-alpine
           env:
             - name: POSTGRES_PASSWORD
@@ -27,16 +25,8 @@ spec:
               value: postgres
             - name: POSTGRES_DB
               value: news
-          ports:
-            - name: postgresql
-              protocol: TCP
-              containerPort: 5432
-          resources:
-            requests:
-              cpu: 100m
-              memory: 256Mi
           volumeMounts:
-            - name: postgres
-              mountPath: /var/lib/postgresql/data/pgdata
-            - name: postgres.conf
-              mountPath: /etc/postgres.conf
+            - name: postgres-volume
+              mountPath: /var/lib/postgresql/data/
+      volumes:
+        - name: postgres-volume

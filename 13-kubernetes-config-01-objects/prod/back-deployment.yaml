@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: back
-  namespace: stage
+  namespace: prod
 spec:
   replicas: 2
   selector:
@@ -16,4 +16,10 @@ spec:
     spec:
       containers:
       - image: provorkova/kubernetes-config_backend:latest
+        name: back
+        ports:
+        - containerPort: 9000
+        env:
+          - name: DATABASE_URL
+            value: postgres://postgres:postgres@postgres-service:5432/news
 
