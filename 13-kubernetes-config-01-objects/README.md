@@ -16,7 +16,7 @@ https://github.com/netology-code/devkub-homeworks/tree/main/13-kubernetes-config
 <br>docker tag 13-kubernetes-config_backend:latest provorkova/kubernetes-config_backend:latest
 <br>docker push provorkova/kubernetes-config_frontend:latest
 <br>docker push provorkova/kubernetes-config_backend:latest
-<br><br>Создаем Мнифесты для stage-окружения
+<br><br>Создаем Манифесты для stage-окружения
 <br>Deployment:
 ```yaml
 ---
