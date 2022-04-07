@@ -19,6 +19,9 @@ https://github.com/netology-code/devkub-homeworks/tree/main/13-kubernetes-config
 <br><br>Создаем [deployment](stage/deployment.yaml), [statefulset](stage/statefulset.yaml) и [services](stage/services.yaml) для stage
 <br>kubectl create namespace stage
 <br>kubectl apply -f stage
+<br>![stage-entities](imgs/stage-entities.png)
+<br>kubectl port-forward -n stage service/inner-stage 8080:80 
+<br>![stage-curl](imgs/stage-curl.png)
 #### 2. Подготовить конфиг для production окружения
 ```
 Следующим шагом будет запуск приложения в production окружении. Требования сложнее:

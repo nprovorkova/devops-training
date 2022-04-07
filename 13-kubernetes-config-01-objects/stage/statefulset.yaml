@@ -5,8 +5,8 @@ metadata:
   name: postgresql
   namespace: stage
 spec:
-  serviceName: postgresql
-  replicas: 2
+  serviceName: postgres-service
+  replicas: 1
   selector:
     matchLabels:
       app: postgresql
@@ -15,8 +15,6 @@ spec:
       labels:
         app: postgresql
     spec:
-      serviceAccountName: postgresql
-      terminationGracePeriodSeconds: 10
       containers:
         - name: postgresql
           image: postgres:13-alpine
@@ -27,16 +25,8 @@ spec:
               value: postgres
             - name: POSTGRES_DB
               value: news
-          ports:
-            - name: postgresql
-              protocol: TCP
-              containerPort: 5432
-          resources:
-            requests:
-              cpu: 100m
-              memory: 256Mi
           volumeMounts:
-            - name: postgres
-              mountPath: /var/lib/postgresql/data/pgdata
-            - name: postgres.conf
-              mountPath: /etc/postgres.conf
+            - name: postgres-volume
+              mountPath: /var/lib/postgresql/data/
+      volumes:
+        - name: postgres-volume

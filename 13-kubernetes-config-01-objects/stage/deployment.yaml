@@ -16,7 +16,10 @@ spec:
     spec:
       containers:
       - image: provorkova/kubernetes-config_backend:latest
+        name: back
+        ports:
+        - containerPort: 9000
       - image: provorkova/kubernetes-config_frontend:latest
-  env:
-    - name: POSTGRES
-      value: postgresql
+        name: front
+        ports:
+        - containerPort: 80
