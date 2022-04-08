@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolit
+  namespace: stage
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: monolit
+  template:
+    metadata:
+      labels:
+        app: monolit
+    spec:
+      containers:
+        - image: provorkova/kubernetes-config_backend:latest
+          name: back
+          ports:
+            - containerPort: 9000
+          volumeMounts:
+            - mountPath: "/static"
+              name: static-volume
+        - image: provorkova/kubernetes-config_frontend:latest
+          name: front
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: "/static"
+              name: static-volume
+      volumes:
+        - name: static-volume
+          emptyDir: {}

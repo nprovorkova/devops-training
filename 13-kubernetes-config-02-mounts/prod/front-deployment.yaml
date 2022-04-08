@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - image: provorkova/kubernetes-config_frontend:latest
+        name: front
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: "/dynamic"
+            name: common-volume
+        env:
+          - name: BASE_URL
+            value: http://back:9000
+      volumes:
+        - name: common-volume
+          persistentVolumeClaim:
+            claimName: dynamic-pvc
