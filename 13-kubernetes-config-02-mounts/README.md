@@ -156,10 +156,8 @@ kubectl create namespace prod
 <br>kubectl get csinodes
 <br>![prod-provisioners](imgs/prod-provisioners.png)
 <br>kubectl get po,pvc,pv -n prod
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<br>![prod-entities](imgs/prod-entities.png)
+<br>kubectl exec back-766476c4fb-dmmnd -n prod -- sh -c "echo 'dynamic' > /dynamic/dynamic.txt"
+<br>kubectl exec back-766476c4fb-dmmnd -n prod -- ls -la /dynamic
+<br>kubectl exec front-6f58f7f58f-cq7qg -n prod -- ls -la /dynamic
+<br>![prod-dynamic-pv](imgs/prod-dynamic-pv.png)

@@ -5,7 +5,7 @@ metadata:
   name: dynamic-pvc
   namespace: prod
 spec:
-  storageClassName: "nfs"
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:

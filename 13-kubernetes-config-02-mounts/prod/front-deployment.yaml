@@ -21,11 +21,11 @@ spec:
         - containerPort: 80
         volumeMounts:
           - mountPath: "/dynamic"
-            name: common-volume
+            name: dynamic-volume
         env:
           - name: BASE_URL
             value: http://back:9000
       volumes:
-        - name: common-volume
+        - name: dynamic-volume
           persistentVolumeClaim:
             claimName: dynamic-pvc

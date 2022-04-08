@@ -21,12 +21,12 @@ spec:
         - containerPort: 9000
         volumeMounts:
           - mountPath: "/dynamic"
-            name: common-volume
+            name: dynamic-volume
         env:
           - name: DATABASE_URL
             value: postgres://postgres:postgres@postgres-service:5432/news
       volumes:
-        - name: common-volume
+        - name: dynamic-volume
           persistentVolumeClaim:
             claimName: dynamic-pvc
 
