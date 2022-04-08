@@ -72,10 +72,10 @@ kubectl apply -f stage
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: common-pvc
-  namespace: test-pvc
+  name: dynamic-pvc
+  namespace: prod
 spec:
-  storageClassName: "nfs"
+  storageClassName: nfs
   accessModes:
     - ReadWriteMany
   resources:
@@ -89,7 +89,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: back
-  namespace: test-pvc
+  namespace: prod
 spec:
   replicas: 2
   selector:
@@ -106,13 +106,13 @@ spec:
         ports:
         - containerPort: 9000
         volumeMounts:
-          - mountPath: "/static"
-            name: common-volume
+          - mountPath: "/dynamic"
+            name: dynamic-volume
         env:
           - name: DATABASE_URL
             value: postgres://postgres:postgres@postgres-service:5432/news
       volumes:
-        - name: common-volume
+        - name: dynamic-volume
           persistentVolumeClaim:
             claimName: dynamic-pvc
 ```
@@ -123,7 +123,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front
-  namespace: test-pvc
+  namespace: prod
 spec:
   replicas: 2
   selector:
@@ -140,13 +140,13 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - mountPath: "/static"
-            name: common-volume
+          - mountPath: "/dynamic"
+            name: dynamic-volume
         env:
           - name: BASE_URL
             value: http://back:9000
       volumes:
-        - name: common-volume
+        - name: dynamic-volume
           persistentVolumeClaim:
             claimName: dynamic-pvc
 ```
