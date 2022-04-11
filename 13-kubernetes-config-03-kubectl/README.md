@@ -29,4 +29,4 @@ kubectl port-forward -n prod service/back-service 9000:9000
 kubectl scale --replicas=3 deploy back front -n prod
 <br>kubectl get pods -o wide -n prod
 <br>![scale-1](imgs/scale-1.png)
-<br>![scale-2](imgs/scale-2.png)
+<br>![scale-22](imgs/scale-22.png)
