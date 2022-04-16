@@ -1,0 +1,17 @@
+namespace: prod
+
+backName: back
+backPort: 9000
+backImage: provorkova/kubernetes-config_backend
+backImageTag: latest
+
+frontName: front
+frontPort: 8000
+frontImage: provorkova/kubernetes-config_frontend
+frontImageTag: latest
+
+postgresName: postgres
+postgresPort: 5432
+postgresImage: postgres
+postgresImageTag: 13-alpine
+

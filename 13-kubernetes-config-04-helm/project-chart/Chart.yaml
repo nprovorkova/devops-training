@@ -1,0 +1,8 @@
+apiVersion: v2
+name: project-chart
+description: Chart for phyton-application
+
+type: application
+
+version: 0.1.1
+appVersion: "0.1.1"

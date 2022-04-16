@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.frontName }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: {{ .Values.frontName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontName }}
+    spec:
+      containers:
+      - image: {{ .Values.frontImage }}:{{ .Values.frontImageTag }}
+        name: {{ .Values.frontName }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - mountPath: "/dynamic"
+            name: dynamic-volume
+        env:
+          - name: BASE_URL
+            value: http://{{ .Values.backName }}:{{ .Values.backPort }}
+      volumes:
+        - name: dynamic-volume
+          persistentVolumeClaim:
+            claimName: dynamic-pvc
