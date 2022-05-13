@@ -45,7 +45,7 @@ loadbalancer_apiserver:
 ```
 Change all occurrence of “nf_conntrack_ipv4” To “nf_conntrack”
 ```
-<br>ansible-playbook -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=user
+<br>ansible-playbook -i inventory/happy-cluster/inventory.ini cluster.yml -b -v -e ansible_user=nataliya
 <br>![kubespray-setup.png](imgs/kubespray-setup.png)
 <br>Заходим на мастер-ноду
 <br>kubectl get nodes
