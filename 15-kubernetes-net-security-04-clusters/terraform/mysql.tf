@@ -15,7 +15,7 @@ resource "yandex_mdb_mysql_cluster" "netology-mysql-db" {
   }
 
   backup_window_start {
-    hours = 23
+    hours   = 23
     minutes = 59
   }
 
@@ -37,9 +37,9 @@ resource "yandex_mdb_mysql_cluster" "netology-mysql-db" {
   dynamic "host" {
     for_each = local.zones
     content {
-      zone = host.value.zone_name
+      zone      = host.value.zone_name
       subnet_id = yandex_vpc_subnet.private[host.key].id
-      name = "db-host-${host.key}"
+      name      = "db-host-${host.key}"
     }
   }
 }

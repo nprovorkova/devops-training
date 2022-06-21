@@ -1,15 +1,15 @@
 resource "yandex_kubernetes_node_group" "netology-cluster-workers" {
-  for_each = local.zones_k8s
-  cluster_id  = yandex_kubernetes_cluster.netology-control-plane.id
-  name        = "netology-cluster-nodegroup-${each.key}"
-  version     = local.k8s.version
+  for_each   = local.zones_k8s
+  cluster_id = yandex_kubernetes_cluster.netology-control-plane.id
+  name       = "netology-cluster-nodegroup-${each.key}"
+  version    = local.k8s.version
 
   instance_template {
     platform_id = "standard-v2"
 
     network_interface {
-      nat                = true
-      subnet_ids         = [yandex_vpc_subnet.public[each.key].id]
+      nat        = true
+      subnet_ids = [yandex_vpc_subnet.public[each.key].id]
     }
 
     resources {
@@ -37,8 +37,8 @@ resource "yandex_kubernetes_node_group" "netology-cluster-workers" {
 
   scale_policy {
     auto_scale {
-      min = 1
-      max = 2
+      min     = 1
+      max     = 2
       initial = 1
     }
   }

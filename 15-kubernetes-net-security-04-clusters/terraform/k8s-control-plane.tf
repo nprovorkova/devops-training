@@ -1,15 +1,15 @@
 resource "yandex_kubernetes_cluster" "netology-control-plane" {
-  name        = "netology-control-plane"
+  name       = "netology-control-plane"
   network_id = yandex_vpc_network.vpc-0.id
 
   master {
     regional {
       region = local.k8s.region
 
-      dynamic location {
+      dynamic "location" {
         for_each = local.zones_k8s
         content {
-          zone    = yandex_vpc_subnet.public[location.key].zone
+          zone      = yandex_vpc_subnet.public[location.key].zone
           subnet_id = yandex_vpc_subnet.public[location.key].id
         }
       }
@@ -17,7 +17,7 @@ resource "yandex_kubernetes_cluster" "netology-control-plane" {
 
     version   = local.k8s.version
     public_ip = true
-   }
+  }
 
   service_account_id      = yandex_iam_service_account.service-account-0.id
   node_service_account_id = yandex_iam_service_account.service-account-0.id
